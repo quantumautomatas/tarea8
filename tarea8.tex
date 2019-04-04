@@ -58,17 +58,18 @@
         	
         	Vamos a demostrar por contradicción:\\
         	
-        	Supongamos que L es un lenguaje regular y que n es la constante de bombeo tal que cualquier cadena $w \in L$, $|w| \geq n$. Sabemos que $w = a^nxb^n$ y que w se puede descomponer en uvx, de ahí, podemos dar la siguiente descomposición:
+        	Supongamos que L es un lenguaje regular y que n es la constante de bombeo tal que cualquier cadena $w \in L$, $|w| \geq n$. Tomemos una w que claramente está en L: $w = a^nb^n$, y demos la siguiente descomposición de w en uvx:
         	
         	$u = a^k, \ v= a^j, \  k \geq 0, j \geq 1 \ $ 
-        	De ahí, tenemos que $x = a^{n-k-j}xb^n$\\
+        	De ahí, tenemos que $x = a^{n-k-j}b^n$\\
         	
-        	Se puede ver que cumplimos con  $|uv| \geq$ n y v $\neq \epsilon$. Si tomamos $m = 4$, por el lema del bombeo, $uv^4x \in L$.\\
+        	Se puede ver que cumplimos con  $|uv| \geq$ n y v $\neq \epsilon$. Si tomamos $m = 4$, por el lema del bombeo, se debe cumplir que $uv^4x \in L$.\\
         	
-        	Pero tenemos que $uv^4x = a^ka^ja^ja^ja^ja^{n-k-j}xb^n = a^{n+3j}xb^n \notin L$, lo cual es una contradicción.\\
+        	Pero tenemos que $uv^4x = a^ka^ja^ja^ja^ja^{n-k-j}b^n = a^{n+3j}b^n \notin L$, lo cual es una contradicción.\\
         	
         	Por lo tanto, L no es un lenguaje regular $\blacksquare$
         	}\\
+        
         	\item{
         	Demuestra que el lenguaje no es regular usando el conjunto estafador.\\
         	
@@ -79,7 +80,9 @@
         	Por un lado tenemos $ a^mb^m \in L$\\
         	Por otra parte tenemos $a^nb^m \not \in L$\\
         	
-        	Por lo tanto $a^m \not\equiv_L a^n$ y S es un conjunto estafador de L.
+        	Por lo tanto $a^m \not\equiv_L a^n$ y S es un conjunto estafador de L.\\
+        	
+        	Como pudimos encontrar un conjunto estafador de L, concluimos que L no es regular. $\blacksquare$
         	}
         \end{enumerate}
     	}
