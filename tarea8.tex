@@ -46,7 +46,7 @@
         		w = uvx
         		}
         		\item {
-        		$|uv| \geq$ n
+        		$|uv| \leq$ n
         		}
        		 	\item {
         		v $\neq \epsilon$
@@ -58,14 +58,23 @@
         	
         	Vamos a demostrar por contradicción:\\
         	
-        	Supongamos que L es un lenguaje regular y que n es la constante de bombeo tal que cualquier cadena $w \in L$, $|w| \geq n$. Tomemos una w que claramente está en L: $w = a^nb^n$, y demos la siguiente descomposición de w en uvx:
+			Supongamos que L es un lenguaje regular y que n es la constante de 
+			bombeo tal que cualquier cadena $w \in L$, $|w| \geq n$. 
+			Tomemos una w que claramente está en L y tiene longitud mayor a n: 
+			$w = a^nb^n, |w| = 2n$. Por hipótesis, $w = uvx$, con $|uv| \leq n$.
+			Y cómo los primeros $n$ caracteres de $w$ son $a's$, tenemos que 
+			$uv = a^{s}, s \leq n$. Entonces, tenemos que 
         	
-        	$u = a^k, \ v= a^j, \  k \geq 0, j \geq 1 \ $ 
-        	De ahí, tenemos que $x = a^{n-k-j}b^n$\\
+        	\[u = a^k, \ v= a^j, \  k \geq 0, j \geq 1 , k+j=s\]
+        	Pues $v \neq \epsilon$. Y como $w = a^nb^n$, tenemos que $x = a^{n-k-j}b^n$\\
         	
-        	Se puede ver que cumplimos con  $|uv| \geq$ n y v $\neq \epsilon$. Si tomamos $m = 4$, por el lema del bombeo, se debe cumplir que $uv^4x \in L$.\\
+			Si tomamos $m = 4$, por el lema del bombeo, se debe cumplir que 
+			$uv^4x \in L$.\\
         	
-        	Pero tenemos que $uv^4x = a^ka^ja^ja^ja^ja^{n-k-j}b^n = a^{n+3j}b^n \notin L$, lo cual es una contradicción.\\
+			Pero tenemos que $uv^4x = a^ka^ja^ja^ja^ja^{n-k-j}b^n = a^{n+3j}b^n$,
+			que estaría el $L$ únicamente cuando $j=0$, pero $j \geq 1$. Entonces
+			esta cadena no está el $L$, que es una contradicción al lema del 
+			bombeo.\\
         	
         	Por lo tanto, L no es un lenguaje regular $\blacksquare$
         	}\\
