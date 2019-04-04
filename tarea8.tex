@@ -28,21 +28,58 @@
     }
 
     \date{
-        4 de abril del 2019
+        5 de abril del 2019
     }
     
     \maketitle
 
     \begin{enumerate}
         \item {
-        Dado el siguiente lenguaje: $L = \{a^ib^i | i \in \mathbb{N} \}$
+        Dado el siguiente lenguaje: $L = \{w \in \{a,b\}^* | \eta_a(w) = \eta_b(w) \}$ es decir el lenguaje que tiene el mismo número de a's que de b's
         \begin{enumerate}
         	\item {
-        	Demuestra que el lenguaje no es regular con el lema del bombeo.
-        	}\\
+        	Demuestra que el lenguaje no es regular con el lema del bombeo.\\
         	
+        	El lema del Bombeo dice que si L es un lenguaje regular infinito entonces existe un número n $\in \mathbb{N}$, llamado constante de bombeo para L, tal que para cualquier cadena w $\in L$ con $|w| \geq$ n existen cadenas u,v,x tales que:        	
+        	\begin{enumerate}
+        		\item {
+        		w = uvx
+        		}
+        		\item {
+        		$|uv| \geq$ n
+        		}
+       		 	\item {
+        		v $\neq \epsilon$
+        		}
+    			\item {
+    			$\forall m \in \mathbb{N} (uv^mx \in L)$
+    			}
+        	\end{enumerate}
+        	
+        	Vamos a demostrar por contradicción:\\
+        	
+        	Supongamos que L es un lenguaje regular y que n es la constante de bombeo tal que cualquier cadena $w \in L$, $|w| \geq n$. Sabemos que $w = a^nxb^n$ y que w se puede descomponer en uvx, de ahí, podemos dar la siguiente descomposición:
+        	
+        	$u = a^k, \ v= a^j, \  k \geq 0, j \geq 1 \ $ 
+        	De ahí, tenemos que $x = a^{n-k-j}xb^n$\\
+        	
+        	Se puede ver que cumplimos con  $|uv| \geq$ n y v $\neq \epsilon$. Si tomamos $m = 4$, por el lema del bombeo, $uv^4x \in L$.\\
+        	
+        	Pero tenemos que $uv^4x = a^ka^ja^ja^ja^ja^{n-k-j}xb^n = a^{n+3j}xb^n \notin L$, lo cual es una contradicción.\\
+        	
+        	Por lo tanto, L no es un lenguaje regular $\blacksquare$
+        	}\\
         	\item{
-        	Demuestra que el lenguaje no es regular usando el conjunto estafador.
+        	Demuestra que el lenguaje no es regular usando el conjunto estafador.\\
+        	
+        	Un conjunto infinito $S \subseteq \Sigma^*$ es un conjunto estafador para L si y sólo si $\forall x,y \in S (x \not\equiv_L y)$.\\
+        	
+        	Sea $S = \{ a^i | i \in \mathbb{N}\}$, veamos que S es un conjunto estafador: Sean $a^m , a^n \in S \ \text{con} \ n \neq m$\\
+        	
+        	Por un lado tenemos $ a^mb^m \in L$\\
+        	Por otra parte tenemos $a^nb^m \not \in L$\\
+        	
+        	Por lo tanto $a^m \not\equiv_L a^n$ y S es un conjunto estafador de L.
         	}
         \end{enumerate}
     	}
